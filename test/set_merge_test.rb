@@ -15,7 +15,7 @@ describe 'SetMerge' do
     merge =  MissingNumbers::SetMerge.new(10)
     assert_nil obj.right_merge(merge)
   end
-  it 'Should iplement left merge if it is time for it' do
+  it 'Should implement left merge if it is time for it' do
     obj = MissingNumbers::SetMerge.new(5)
     merge =  MissingNumbers::SetMerge.new(4)
     assert obj.left_merge(merge)
@@ -23,5 +23,15 @@ describe 'SetMerge' do
     assert_equal 6, obj.next_max
     assert_equal 4, obj.min
     assert_equal 3, obj.next_min
+  end
+  it 'Should implement right merge it it is time for it' do
+    obj = MissingNumbers::SetMerge.new(5)
+    merge =  MissingNumbers::SetMerge.new(6)
+    assert obj.right_merge(merge)
+    assert_equal 6, obj.max
+    assert_equal 7, obj.next_max
+    assert_equal 5, obj.min
+    assert_equal 4, obj.next_min
+    
   end
 end
