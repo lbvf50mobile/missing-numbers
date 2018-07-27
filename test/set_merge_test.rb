@@ -15,4 +15,13 @@ describe 'SetMerge' do
     merge =  MissingNumbers::SetMerge.new(10)
     assert_nil obj.right_merge(merge)
   end
+  it 'Should iplement left merge if it is time for it' do
+    obj = MissingNumbers::SetMerge.new(5)
+    merge =  MissingNumbers::SetMerge.new(4)
+    assert obj.left_merge(merge)
+    assert_equal 5, obj.max
+    assert_equal 6, obj.next_max
+    assert_equal 4, obj.min
+    assert_equal 3, obj.next_min
+  end
 end
