@@ -1,0 +1,1 @@
+require './test/quest_generator_test.rb'
