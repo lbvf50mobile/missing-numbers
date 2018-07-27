@@ -1,5 +1,6 @@
 require './test/quest_generator_test.rb'
 require './test/basic_solve_test.rb'
+require './test/set_test.rb'
 
 describe "Test BasicSove with QuestGenerator" do
     it "Test on 5 elements" do
