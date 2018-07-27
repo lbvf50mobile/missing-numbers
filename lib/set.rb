@@ -1,6 +1,4 @@
 module MissingNumbers
-    class MaxValueSelectedError < ::RuntimeError
-    end
     class Set
         attr_reader :min, :max, :next_min, :next_max
         def initialize(number)
