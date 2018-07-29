@@ -34,4 +34,12 @@ describe 'SetMerge' do
     assert_equal 4, obj.next_min
     
   end
+  it "Should return nil if left join with nil" do
+    obj = MissingNumbers::SetMerge.new(5)
+    assert_nil obj.left_merge(nil)
+  end
+  it "Should return nil if right join with nil" do
+    obj = MissingNumbers::SetMerge.new(5)
+    assert_nil obj.right_merge(nil)
+  end
 end
