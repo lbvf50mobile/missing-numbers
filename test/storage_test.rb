@@ -76,4 +76,16 @@ describe 'Storage' do
     @storage.insert(6)
     assert_equal [1,3,5], @storage.gaps
   end
+  it "calulating gaps 3.5" do
+    @storage.insert(2)
+    @storage.insert(5)
+    @storage.insert(7)
+    assert_equal [1,3,4,6], @storage.gaps
+  end
+  it "calulating gaps 3.5 start from 1" do
+    @storage.insert(1)
+    @storage.insert(5)
+    @storage.insert(7)
+    assert_equal [2,3,4,6], @storage.gaps
+  end
 end

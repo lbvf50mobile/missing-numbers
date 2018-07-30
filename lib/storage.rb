@@ -58,14 +58,12 @@ module MissingNumbers
             end
         end
         def gaps
-            g = []
-            g += (1...@list[0].min).to_a
+            gap = []
+            gap += (1...@list[0].min).to_a
             (1..@list.size-1).each do |index|
-                if @list[index]
-                    g += (@list[index-1].next_max...@list[index].min).to_a
-                end
+                gap += (@list[index-1].next_max...@list[index].min).to_a
             end
-            g
+            gap
         end
     end
 end
