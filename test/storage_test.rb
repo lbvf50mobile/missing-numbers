@@ -44,4 +44,21 @@ describe 'Storage' do
     assert_equal 2, @storage.list[0].min
     assert_equal 2, @storage.list[0].max
   end
+  it "insert begwen existed element" do
+    @storage.insert(5)
+    @storage.insert(10)
+    @storage.insert(7)
+    assert_equal 3, @storage.list.size
+    assert_equal 7, @storage.list[1].min
+    assert_equal 7, @storage.list[1].max
+  end
+  it "add at the bottom at the end" do
+    @storage.insert(5)
+    @storage.insert(10)
+    @storage.insert(7)
+    @storage.insert(144)
+    assert_equal 4, @storage.list.size
+    assert_equal 144, @storage.list[-1].min
+    assert_equal 144, @storage.list[-1].max
+  end
 end
