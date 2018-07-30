@@ -20,5 +20,16 @@ describe 'Storage' do
     assert_nil @storage.extend_element(index: 0, number: 2)
     @storage.list = [MissingNumbers::SetMerge.new(5)]
     assert_nil @storage.extend_element(index: 0, number: 7)
+  end 
+  it "left join just delete left element" do
+    @storage.list = [1,2]
+    @storage.left_join(index: 1)
+    assert_equal [2],@storage.list
   end
+  it "right join just delete right element from index" do
+    @storage.list = [1,2]
+    @storage.right_join(index: 0)
+    assert_equal [1],@storage.list
+  end
+    
 end

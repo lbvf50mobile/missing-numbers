@@ -21,5 +21,17 @@ module MissingNumbers
                 nil
             end
         end
+        def left_join(index:)
+            if(index > 0)
+                @list.delete_at(index-1)
+            end
+            @list
+        end
+        def right_join(index:)
+            if(index != @list.size - 1)
+                @list.delete_at(index+1)
+            end
+            @list
+        end
     end
 end
