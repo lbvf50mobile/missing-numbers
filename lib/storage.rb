@@ -27,10 +27,12 @@ module MissingNumbers
             end
         end
         def left_join(index:)
+            @list[index].left_merge(@list[index-1])
             @list.delete_at(index-1)
             @list
         end
         def right_join(index:)
+            @list[index].right_merge(@list[index+1])
             @list.delete_at(index+1)
             @list
         end

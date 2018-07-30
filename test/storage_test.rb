@@ -21,16 +21,6 @@ describe 'Storage' do
     @storage.list = [MissingNumbers::SetMerge.new(5)]
     assert_nil @storage.extend_element(index: 0, number: 7)
   end 
-  it "left join just delete left element" do
-    @storage.list = [1,2]
-    @storage.left_join(index: 1)
-    assert_equal [2],@storage.list
-  end
-  it "right join just delete right element from index" do
-    @storage.list = [1,2]
-    @storage.right_join(index: 0)
-    assert_equal [1],@storage.list
-  end
   it "firse element left join check will return nil" do
     @storage.list = [1,2]
     assert_nil @storage.left_join_check?(index: 0)
@@ -38,5 +28,13 @@ describe 'Storage' do
   it "last element in right join will return nil" do
     @storage.list = [1,2]
     assert_nil @storage.right_join_check?(index: 1)
+  end
+  it "join works" do
+    @storage.insert(5)
+    @storage.insert(7)
+    @storage.insert(6)
+    assert_equal 1, @storage.list.size
+    assert_equal 5, @storage.list[0].min
+    assert_equal 7, @storage.list[0].max
   end
 end
