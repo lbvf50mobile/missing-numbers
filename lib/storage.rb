@@ -12,26 +12,30 @@ module MissingNumbers
         def extend_element(index:,number:)
             case @list[index].check(number)
             when -1
-                left_join(index: index)
+                left_join(index: index) if left_join_check?(index: index)
                 true
             when 1
-                right_join(index: index)
+                right_join(index: index) if right_join_check?(index: index)
                 true
             else
                 nil
             end
         end
         def left_join(index:)
-            if(index > 0)
-                @list.delete_at(index-1)
-            end
+            @list.delete_at(index-1)
             @list
         end
         def right_join(index:)
-            if(index != @list.size - 1)
-                @list.delete_at(index+1)
-            end
+            @list.delete_at(index+1)
             @list
+        end
+        def left_join_check? (index:)
+            return nil if 0 >= index
+            return true
+        end
+        def right_join_check? (index:)
+            return nil if @list.size - 1 == index
+            return true
         end
     end
 end

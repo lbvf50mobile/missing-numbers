@@ -31,5 +31,12 @@ describe 'Storage' do
     @storage.right_join(index: 0)
     assert_equal [1],@storage.list
   end
-    
+  it "firse element left join check will return nil" do
+    @storage.list = [1,2]
+    assert_nil @storage.left_join_check?(index: 0)
+  end
+  it "last element in right join will return nil" do
+    @storage.list = [1,2]
+    assert_nil @storage.right_join_check?(index: 1)
+  end
 end
