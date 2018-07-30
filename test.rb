@@ -18,6 +18,8 @@ describe "Test BasicSove with QuestGenerator" do
         @missing_amount = rand(9) + 1
         task = MissingNumbers::QuestGenerator.generate({max_value:@max_value, missing_amount:@missing_amount})
         ans = MissingNumbers::BasicSolve.miss_nums_finder(task[:quest])
+        ans_disjoint = MissingNumbers::DisjointArraySolve.miss_nums_finder(task[:quest])
         assert_equal ans.sort, task[:answer]
+        assert_equal ans_disjoint.sort, task[:answer]
     end
 end
