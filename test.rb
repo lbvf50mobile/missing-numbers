@@ -48,4 +48,9 @@ def measurements (max_value:, missing_amount:)
     rails "DisjointArraySolve Fails" if ans_disjoint.sort != task[:answer]
 end
 
-measurements(max_value: 100, missing_amount: 5)
+max_value = 10000
+
+1.times do
+    measurements(max_value: max_value, missing_amount: 5)
+    max_value *= 5
+end
