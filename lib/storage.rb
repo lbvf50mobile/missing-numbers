@@ -31,11 +31,19 @@ module MissingNumbers
         end
         def left_join_check? (index:)
             return nil if 0 >= index
-            return true
+            if @list[index-1].next_max == @list[index].min
+                true
+            else
+                false
+            end
         end
         def right_join_check? (index:)
             return nil if @list.size - 1 == index
-            return true
+            if @list[index].max == @list[index+1].next_min
+                true
+            else
+                false
+            end
         end
     end
 end
