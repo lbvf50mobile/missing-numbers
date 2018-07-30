@@ -61,4 +61,19 @@ describe 'Storage' do
     assert_equal 144, @storage.list[-1].min
     assert_equal 144, @storage.list[-1].max
   end
+  it "calulating gaps" do
+    @storage.insert(2)
+    assert_equal [1], @storage.gaps
+  end
+  it "calulating gaps 2" do
+    @storage.insert(2)
+    @storage.insert(4)
+    assert_equal [1,3], @storage.gaps
+  end
+  it "calulating gaps 3" do
+    @storage.insert(2)
+    @storage.insert(4)
+    @storage.insert(6)
+    assert_equal [1,3,5], @storage.gaps
+  end
 end
