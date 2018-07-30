@@ -11,6 +11,11 @@ module MissingNumbers
                     flag = true
                     break
                 end
+                if(number < list_element.next_min)
+                     @list.insert(index,MissingNumbers::SetMerge.new(number))
+                    flag = true
+                    break
+                end
             end
             @list.push(MissingNumbers::SetMerge.new(number)) unless flag
         end

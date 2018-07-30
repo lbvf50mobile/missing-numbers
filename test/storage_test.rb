@@ -37,4 +37,11 @@ describe 'Storage' do
     assert_equal 5, @storage.list[0].min
     assert_equal 7, @storage.list[0].max
   end
+  it "insert left" do
+    @storage.insert(5)
+    @storage.insert(2)
+    assert_equal 2, @storage.list.size
+    assert_equal 2, @storage.list[0].min
+    assert_equal 2, @storage.list[0].max
+  end
 end
