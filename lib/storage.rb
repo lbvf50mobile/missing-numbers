@@ -4,5 +4,10 @@ module MissingNumbers
         def initialize
             @list = [] 
         end
+        def insert(element)
+            @list.each_with_index do |list_element, index|
+            end
+            @list.push(element)
+        end
     end
 end

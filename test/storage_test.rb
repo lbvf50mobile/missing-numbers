@@ -9,4 +9,9 @@ describe 'Storage' do
   it "it should have list value that return the list of elements" do
     assert_kind_of Array, @storage.list
   end
+  it "should insert first element when it's empty list" do
+    element = MissingNumbers::SetMerge.new(5)
+    @storage.insert(element)
+    assert_equal [element], @storage.list
+  end
 end
