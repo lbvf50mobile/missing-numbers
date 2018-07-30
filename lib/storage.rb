@@ -4,10 +4,10 @@ module MissingNumbers
         def initialize
             @list = [] 
         end
-        def insert(element)
+        def insert(number)
             @list.each_with_index do |list_element, index|
             end
-            @list.push(element)
+            @list.push(MissingNumbers::SetMerge.new(number))
         end
     end
 end

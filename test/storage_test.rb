@@ -10,8 +10,9 @@ describe 'Storage' do
     assert_kind_of Array, @storage.list
   end
   it "should insert first element when it's empty list" do
-    element = MissingNumbers::SetMerge.new(5)
-    @storage.insert(element)
-    assert_equal [element], @storage.list
+    number = 5 
+    @storage.insert(number)
+    assert_equal 1, @storage.list.size
+    assert MissingNumbers::SetMerge.new(number).min == @storage.list[0].min
   end
 end
