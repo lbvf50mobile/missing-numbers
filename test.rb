@@ -44,8 +44,10 @@ def measurements (max_value:, missing_amount:)
     }
     puts "Disjn solve: %.4f" % disjoint_array_solve_time.real
 
-    railse "BasicSolve Fails" if ans.sort != task[:answer]
-    rails "DisjointArraySolve Fails" if ans_disjoint.sort != task[:answer]
+    p ans, ans_disjoint
+
+    raise "BasicSolve Fails" if ans.sort != task[:answer]
+    raise "DisjointArraySolve Fails" if ans_disjoint.sort != task[:answer]
 end
 
 max_value = 10000
