@@ -5,9 +5,14 @@ module MissingNumbers
             @list = [] 
         end
         def insert(number)
+            flag = nil
             @list.each_with_index do |list_element, index|
+                if(extend_element(index:index, number: number))
+                    flag = true
+                    break
+                end
             end
-            @list.push(MissingNumbers::SetMerge.new(number))
+            @list.push(MissingNumbers::SetMerge.new(number)) unless flag
         end
         def extend_element(index:,number:)
             case @list[index].check(number)
