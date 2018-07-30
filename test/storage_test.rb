@@ -15,4 +15,10 @@ describe 'Storage' do
     assert_equal 1, @storage.list.size
     assert MissingNumbers::SetMerge.new(number).min == @storage.list[0].min
   end
+  it "shold not Extend left join when it's no time for it" do
+    @storage.list = [MissingNumbers::SetMerge.new(5)]
+    assert_nil @storage.extend_element(index: 0, number: 2)
+    @storage.list = [MissingNumbers::SetMerge.new(5)]
+    assert_nil @storage.extend_element(index: 0, number: 7)
+  end
 end
