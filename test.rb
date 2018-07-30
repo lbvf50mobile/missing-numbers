@@ -32,17 +32,17 @@ def measurements (max_value:, missing_amount:)
     generate_time = Benchmark.measure{
         task = MissingNumbers::QuestGenerator.generate({max_value:max_value, missing_amount:missing_amount})
     }
-    puts "Generate quest: %02f" % generate_time.real
+    puts "Generate quest: %.4f" % generate_time.real
 
     basic_solve_time = Benchmark.measure {
         ans = MissingNumbers::BasicSolve.miss_nums_finder(task[:quest])
     }
-    puts "Basic solve: %02f" % basic_solve_time.real
+    puts "Basic solve: %.4f" % basic_solve_time.real
 
     disjoint_array_solve_time = Benchmark.measure {
         ans_disjoint = MissingNumbers::DisjointArraySolve.miss_nums_finder(task[:quest])
     }
-    puts "Disjn solve: %02f" % disjoint_array_solve_time.real
+    puts "Disjn solve: %.4f" % disjoint_array_solve_time.real
 
     railse "BasicSolve Fails" if ans.sort != task[:answer]
     rails "DisjointArraySolve Fails" if ans_disjoint.sort != task[:answer]
