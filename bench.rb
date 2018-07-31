@@ -1,10 +1,8 @@
 Dir["./lib/*.rb"].each {|file| require file }
 require 'benchmark'
 
-Solutions = [ 
-    MissingNumbers::BasicSolve, 
-    MissingNumbers::DisjointArraySolve,
-    MissingNumbers::VectorBoolSolve ]
+# Here Solutions array come from
+require './solutions_for_test_and_bench.rb'
 
 def solution(task:,solve_class:)
     ans = nil

@@ -1,9 +1,7 @@
 Dir["./test/*.rb"].each {|file| require file }
 
-Solutions = [ 
-    MissingNumbers::BasicSolve, 
-    MissingNumbers::DisjointArraySolve,
-    MissingNumbers::VectorBoolSolve ]
+# Here Solutions array come from
+require './solutions_for_test_and_bench.rb'
 
 def test_solutions(task:)
     Solutions.each do |solutions_class|
@@ -12,7 +10,7 @@ def test_solutions(task:)
     end
 end
 
-describe "Test BasicSove with QuestGenerator" do
+describe "Test Solutions with QuestGenerator" do
     it "Test on 5 elements" do
         task = MissingNumbers::QuestGenerator.generate({max_value:5, missing_amount:1})
         test_solutions(task: task)
