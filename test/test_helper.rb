@@ -1,7 +1,2 @@
 require 'minitest/autorun'
-require './lib/quest_generator.rb'
-require './lib/basic_solve.rb'
-require './lib/set.rb'
-require './lib/set_merge.rb'
-require './lib/storage.rb'
-require './lib/disjoint_array_solve.rb'
+Dir["./lib/*.rb"].each {|file| require file }
