@@ -1,7 +1,10 @@
 Dir["./lib/*.rb"].each {|file| require file }
 require 'benchmark'
 
-Solutions = [ MissingNumbers::BasicSolve, MissingNumbers::DisjointArraySolve ]
+Solutions = [ 
+    MissingNumbers::BasicSolve, 
+    MissingNumbers::DisjointArraySolve,
+    MissingNumbers::VectorBoolSolve ]
 
 def solution(task:,solve_class:)
     ans = nil
@@ -28,7 +31,7 @@ end
 
 max_value = 10000
 
-1.times do
+2.times do
     measurements(max_value: max_value, missing_amount: 5)
     max_value *= 5
 end
